@@ -124,6 +124,8 @@ char *item_data(const list_t *list)
 */
 // 1. buf is in local scope of item_data function. buf shoud be passed as argument
 
+    /* Free memory allocated for list_t
+	 */
 void free_list(list_t *list){
     list_t *p = list;
     list_t *garbage = NULL;
@@ -141,7 +143,9 @@ void free_list(list_t *list){
     }
 }
 
-void print_all_list_items(list_t *list){
+    /* Print all list_t data
+	 */
+void print_all_list_data(list_t *list){
     list_t *p = list;
     int i = 1;
     char str[12]; 
@@ -156,7 +160,7 @@ void print_all_list_items(list_t *list){
 }
 
 void main () {
-    //printf("Hello World\n");
+    
     list_t *head = insert_next_to_list(NULL,10);
     list_t *p = NULL;    
     int i, count = 0;
@@ -183,16 +187,16 @@ void main () {
     count = count_list_items_straight(head);
     printf("count s == %d\n",count);
 
-    print_all_list_items(head);
+    print_all_list_data(head);
     
     remove_next_from_list(head);
-    print_all_list_items(head);
+    print_all_list_data(head);
 
     remove_next_from_list(head);
-    print_all_list_items(head);
+    print_all_list_data(head);
 
     remove_next_from_list(head);
-    print_all_list_items(head);
+    print_all_list_data(head);
 
     free_list(head);
 }
