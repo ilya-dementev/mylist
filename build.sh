@@ -1,0 +1,1 @@
+gcc -g  ./mylist.c -o mylist.o
